@@ -1,0 +1,112 @@
+{
+  "info": {
+    "_postman_id": "f4a4eae3-0000-4000-9000-123456789abc",
+    "name": "Flask Asset Manager",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Asset",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Apple M3 Laptop\",\n    \"service_time\": \"2025-01-01\",\n    \"expiration_time\": \"2026-01-01\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/assets",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "assets"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Assets",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:5000/api/assets",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "assets"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Asset",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"serviced\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/assets/:id",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "assets",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Run Checks",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:5000/api/run-checks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "run-checks"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
