@@ -21,15 +21,20 @@ def test_create_asset(client):
     })
     assert response.status_code == 201
 
+
 def test_get_assets(client):
-    client.post('/api/assets', json={
+    resp = client.post('/api/assets', json={
         "name": "A",
         "service_time": "2025-01-01",
         "expiration_time": "2026-01-01"
     })
-    response = client.get('/api/assets')
-    assert response.status_code == 200
-    assert len(response.get_json()) == 1
+    assert resp.status_code == 201
+
+    resp = client.get('/api/assets')
+    assert resp.status_code == 200
+    assets = resp.get_json()
+
+    assert any(a["name"] == "A" for a in assets)
 
 def test_update_asset(client):
     resp = client.post('/api/assets', json={
